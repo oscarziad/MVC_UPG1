@@ -1,0 +1,38 @@
+﻿@model SchoolClassStudent
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Add student to class</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="StudentId" class="control-label"></label>
+                <select id="student" asp-for="StudentId" class="form-control" asp-items="ViewBag.StudentId">
+                    <option value="null" disabled selected hidden>Select a student ...</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="SchoolClassId" class="control-label"></label>
+                <select id="Sclass" asp-for="SchoolClassId" class="form-control" asp-items="ViewBag.SchoolClassId">
+                    <option value="null" disabled selected hidden>Select a class ...</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary pl-5 pr-5" disabled="disabled" id="button1" >Create</button>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
